@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] CapsuleCollider AreaDeAtaque;
-    [SerializeField] IWeapon[] ListaDeWeapons;
+    [SerializeField] GameObject[] ListaDeWeapons;
     private int Index = 0;
     private int nextIndex;
     private IWeapon weapon; // weapon en mano
@@ -18,31 +19,26 @@ public class PlayerAttack : MonoBehaviour
             Attack();
             
         }
-        if (weapon == null)
+        else if (Input.GetKeyDown(KeyCode.Q)) 
         {
-            Debug.Log("There's no weapon yet");
+            NextWeapon();
         }
     }
-
      void Awake()
     {
-        if(ListaDeWeapons.Length > 0) 
+        if (ListaDeWeapons.Length > 0)
         {
-            weapon = ListaDeWeapons[Index] as IWeapon;
-        }    
+            // obtener el primer arma
+            weapon = ListaDeWeapons[Index].GetComponent<IWeapon>();
+            ListaDeWeapons[Index].SetActive(true);
+        }
     }
-
-    public void SwitchWeapon(int Index) 
-    {
-        if (Index < 0 || Index >= ListaDeWeapons.Length) return;
-
-        weapon = ListaDeWeapons[Index] as IWeapon;
-        this.Index = Index; // si este no funciona lo cambiamos
-    }
-
     public void NextWeapon() 
     {
-        nextIndex = (Index + 1) % ListaDeWeapons.Length;
+        ListaDeWeapons[Index].SetActive(false);
+        Index = (Index + 1) % ListaDeWeapons.Length;
+        ListaDeWeapons[Index].SetActive(true);
+        weapon = ListaDeWeapons[Index].GetComponent<IWeapon>();
     }
 
     public void Attack() 
