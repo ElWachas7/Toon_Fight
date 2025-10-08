@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class HitDetection : MonoBehaviour
 {
+    [SerializeField] public Transform shootinPoint;
+    [SerializeField] private ArrowPool arrowPool;
+    [SerializeField] private TowerStats towerStats;
+    private float coolDownCounter = 0;
     private List<IEnemy> enemiesInRange = new List<IEnemy>();
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("entró " + other.name);
@@ -31,6 +36,8 @@ public class HitDetection : MonoBehaviour
     }
     private void Update()
     {
+        //aca tengo que modiciar este scritp, solo obtiene el enemigo en rango y los guarda en una lista
+        //deberia hacer un proceso de eleccion con la distancia y puntos recorridos de cada enemigo
         if (enemiesInRange.Count == 0) return;
 
         IEnemy objetivo = null;
@@ -46,16 +53,32 @@ public class HitDetection : MonoBehaviour
             }
         }
 
-        if (objetivo != null)
-        {
-            Atacar(objetivo);
-        }
+        coolDown(objetivo);
     }
 
     private void Atacar(IEnemy enemigo)
     {
-        // Tu lógica de ataque: disparar, reducir vida, etc.
-        Debug.Log("Atacando a " + enemigo.Name);
+        Debug.Log("Atacando a enemigo");
+        Arrow arrow = arrowPool.GetArrow();
+        arrow.transform.position = shootinPoint.position;
+        arrow.Shoot(enemigo, towerStats.damage, towerStats.projectileSpeed);
+    }
+
+    private void coolDown(IEnemy objetivo) 
+    {
+        if (objetivo != null)
+        {
+            coolDownCounter += Time.deltaTime;
+            if (coolDownCounter >= towerStats.cooldown)
+            {
+                Atacar(objetivo);
+                coolDownCounter = 0;
+            }
+        }
+        else
+        {
+            coolDownCounter = 0;
+        }
     }
 
 }
