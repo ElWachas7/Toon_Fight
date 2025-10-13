@@ -25,7 +25,6 @@ public class Arrow : MonoBehaviour
         float distance = Vector3.Distance(transform.position, enemyTransform.position);
         float estimatedTime = distance / speed;
         initialSpeed = CalculateInitialSpeed(enemyTransform.position, transform.position, estimatedTime);
-        // Empezamos la corrutina
         StartCoroutine(MoveToTarget());
     }
 

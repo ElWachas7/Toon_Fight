@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HitDetection : MonoBehaviour
 {
-    [SerializeField] public Transform shootinPoint;
+    [SerializeField] public Transform shootingPoint;
     [SerializeField] private ArrowPool arrowPool;
     [SerializeField] private TowerStats towerStats;
     private float coolDownCounter = 0;
@@ -60,7 +60,7 @@ public class HitDetection : MonoBehaviour
     {
         Debug.Log("Atacando a enemigo");
         Arrow arrow = arrowPool.GetArrow();
-        arrow.transform.position = shootinPoint.position;
+        arrow.transform.position = shootingPoint.position;
         arrow.Shoot(enemigo, towerStats.damage, towerStats.projectileSpeed);
     }
 
