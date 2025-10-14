@@ -40,6 +40,7 @@ public class EnemyController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _start = spawnPoints[Random.Range(0, spawnPoints.Count)];
         _goal = endPoints[Random.Range(0, endPoints.Count)];
+        
     }
     private void Start()
     {
@@ -105,7 +106,8 @@ public class EnemyController : MonoBehaviour
 
         var isPlayerInRange = new QuestionNode(QuestionIsPlayerInRange, attack, goToBase);
         var isDead = new QuestionNode(QuestionIsHealth0, death, isPlayerInRange);
-        
+
+        _tree = isDead;
     }
 
 
@@ -133,6 +135,7 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         _fsm.OnUpdate();
+        _tree.Execute();
 
     }
 }

@@ -7,8 +7,10 @@ using UnityEngine;
 public class EnemyGoToBaseState<T> : State<T>
 {
     protected List<Vector3> _waypoints;
+    
     int _index;
     bool _isFinishPath;
+    bool _pathSet = false;
 
     protected EnemyController _enemy;
 
@@ -16,7 +18,7 @@ public class EnemyGoToBaseState<T> : State<T>
     public Node _goal;
     public Transform _user;
     public Transform _target;
-    public float _distanceToPoint = 2;
+    public float _distanceToPoint = 5;
     public Vector3 LastTargetPosition { get; private set; }
     public EnemyGoToBaseState(Transform user, Transform target, Node start, Node goal, float distanceToPoint = 0.2f)
     {
@@ -27,6 +29,25 @@ public class EnemyGoToBaseState<T> : State<T>
         _enemy = user.GetComponent<EnemyController>();
 
     }
+    public override void Initialize(params object[] p)
+    {
+        base.Initialize(p);
+        
+    }
+    public override void Enter()
+    {
+        
+        SetPathAStar();
+    }
+    public override void Execute()
+    {
+        base.Execute();
+        if (_pathSet == true){
+            Run();
+        }
+        
+    }
+
     protected void Run()
     {
         if (_isFinishPath) return;
@@ -59,6 +80,7 @@ public class EnemyGoToBaseState<T> : State<T>
     }
     public virtual void OnStartPath()
     {
+        _pathSet = true;
         //Debug.Log("OnStartPath");
     }
     public virtual void OnFinishPath()
@@ -107,6 +129,7 @@ public class EnemyGoToBaseState<T> : State<T>
 
         //Vector3 lastTargetPosition = target.transform.position;
         SetWaypoints(pathVector);
+        
     }
     public void SetWaypoints(List<Vector3> newPoints)
     {
