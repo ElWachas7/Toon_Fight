@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float Speed = 10f;
+    public int currentHealth = 100;
     private CharacterController controller;
     float vertical;
     float horizontal;
@@ -21,6 +22,21 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * horizontal + transform.forward * vertical;
         controller.Move(move * Speed * Time.deltaTime);
         //Movement();
+    }
+
+
+
+
+    //Agregado de Nico para que el player pueda recibir daño, esta funcion es llamada desde EnemyAttackState
+    public void GotHit(int damage)
+    {
+        currentHealth -= damage;
+        Debug.Log("Player hit! Current health: " + currentHealth);
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Player is dead!");
+            // Aquí puedes agregar lógica adicional para cuando el jugador muere
+        }
     }
     /*
      ALTERNATIVA SIN CHARACTER CONTROLLER
