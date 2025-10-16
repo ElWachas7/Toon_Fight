@@ -9,7 +9,7 @@ public class Node : MonoBehaviour
     public float neighborDistance = 3f;
     internal List<Node> neightbors;
 
-    private void Start()
+    private void Awake()
     {
         Node[] allNodes = FindObjectsOfType<Node>();
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    Rigidbody _rb;
+    public Rigidbody _rb;
     public ObstacleAvoidance _obs;
     public EnemyData enemyData;
     public PlayerMovement player;
@@ -132,7 +132,7 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    private void Update()
+    void Update()
     {
         _fsm.OnUpdate();
         _tree.Execute();
