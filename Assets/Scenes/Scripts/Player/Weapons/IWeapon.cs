@@ -5,6 +5,7 @@ using UnityEngine;
 public interface IWeapon
 { 
     void Attack();
-    float Radius { get; }
+    SphereCollider AttackArea { get; set; }
+    float Radius { get; set;}
     Material Material { get; }
 }

@@ -5,7 +5,6 @@ using UnityEngine.Pool;
 public class Arrow : MonoBehaviour
 {
     public ObjectPool<Arrow> pool;
-    private IEnemy enemy;
     private int damage;
     private float speed;
     private Vector3 initialSpeed;
@@ -17,7 +16,6 @@ public class Arrow : MonoBehaviour
 
     public void Shoot(IEnemy enemy, int damage, float projectileSpeed)
     {
-        this.enemy = enemy;
         this.damage = damage;
         this.speed = projectileSpeed;
         this.elapsedTime = 0f;
@@ -25,10 +23,10 @@ public class Arrow : MonoBehaviour
         float distance = Vector3.Distance(transform.position, enemyTransform.position);
         float estimatedTime = distance / speed;
         initialSpeed = CalculateInitialSpeed(enemyTransform.position, transform.position, estimatedTime);
-        StartCoroutine(MoveToTarget());
+        StartCoroutine(MoveToTarget(enemy));
     }
 
-    private IEnumerator MoveToTarget()
+    private IEnumerator MoveToTarget(IEnemy enemy)
     {
         Vector3 origin = transform.position;
         while (enemy != null && elapsedTime < 5f)
@@ -47,6 +45,7 @@ public class Arrow : MonoBehaviour
         }
 
         // Cuando termina el recorrido o desaparece el enemigo
+        enemy.TakeDamage(damage);
         pool.Release(this);
     }
 

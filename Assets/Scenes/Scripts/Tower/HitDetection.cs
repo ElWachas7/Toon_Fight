@@ -12,9 +12,10 @@ public class HitDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("entró " + other.name);
+        
         if (other.CompareTag("Enemy"))
         {
+            Debug.Log("entró " + other.name);
             IEnemy enemy = other.GetComponent<IEnemy>();
             if (enemy != null && !enemiesInRange.Contains(enemy))
             {
@@ -36,6 +37,8 @@ public class HitDetection : MonoBehaviour
     }
     private void Update()
     {
+        //Una linea re falopa de chatgpt
+        enemiesInRange.RemoveAll(enemy => enemy == null || !((MonoBehaviour)enemy).gameObject.activeInHierarchy || enemy.EnemyHealth <= 0);
         //aca tengo que modiciar este scritp, solo obtiene el enemigo en rango y los guarda en una lista
         //deberia hacer un proceso de eleccion con la distancia y puntos recorridos de cada enemigo
         if (enemiesInRange.Count == 0) return;

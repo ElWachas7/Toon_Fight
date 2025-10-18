@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -16,7 +15,6 @@ public class EnemyController : MonoBehaviour
     Node _start;
     Node _goal;
 
-
     [Header("Components")]
     public int currentHealth;
     public float speed;
@@ -25,7 +23,7 @@ public class EnemyController : MonoBehaviour
     public float attackdelay;
     public int range;
 
-    [Header("Behavior Tree")]
+[Header("Behavior Tree")]
     ITreeNode _tree;
 
 

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerChangeWeapon : MonoBehaviour
 {
-    [SerializeField] CapsuleCollider AreaDeAtaque; // hit area
     [SerializeField] MeshRenderer playerSprite; // hit area
     [SerializeField] MonoBehaviour[] weaponList; // all weapon List sword / lance / bowNArrow
     private int Index = 0;
@@ -42,7 +41,6 @@ public class PlayerChangeWeapon : MonoBehaviour
     {
         if (weapon != null)
         {
-            AreaDeAtaque.radius = weapon.Radius;
             playerSprite.material = weapon.Material;
         }
     }
