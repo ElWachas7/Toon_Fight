@@ -6,7 +6,7 @@ public class AStar : MonoBehaviour
 {
     public static List<T> Run<T>(T start, Func<T, bool> isSatisfied, Func<T, List<T>> getConnections, Func<T, T, float> getCost, Func<T, float> heuristic, int watchdog = 500, int watchdogPath = 500)
     {
-        Debug.Log($"AStar: start={start}");
+        //Debug.Log($"AStar: start={start}");
         Dictionary<T, T> parents = new Dictionary<T, T>();
         PriorityQueue<T> pending = new PriorityQueue<T>();
         HashSet<T> visited = new HashSet<T>();
@@ -26,11 +26,11 @@ public class AStar : MonoBehaviour
             }
 
             T current = pending.Dequeue();
-            Debug.Log($"AStar: Dequeued current={current}");
+            //Debug.Log($"AStar: Dequeued current={current}");
 
             if (isSatisfied(current))
             {
-                Debug.Log($"AStar: isSatisfied en current={current} -> reconstruyendo path");
+                //Debug.Log($"AStar: isSatisfied en current={current} -> reconstruyendo path");
                 List<T> path = new List<T>();
                 path.Add(current);
                 while (parents.ContainsKey(path[path.Count - 1]))
@@ -44,7 +44,7 @@ public class AStar : MonoBehaviour
                     path.Add(parents[path[path.Count - 1]]);
                 }
                 path.Reverse();
-                Debug.Log($"AStar: Path encontrado, length={path.Count}");
+                //Debug.Log($"AStar: Path encontrado, length={path.Count}");
                 return path;
             }
             else
@@ -62,11 +62,11 @@ public class AStar : MonoBehaviour
 
                 if (connections == null)
                 {
-                    Debug.Log($"AStar: connections == null para {current}");
+                    //Debug.Log($"AStar: connections == null para {current}");
                     continue;
                 }
 
-                Debug.Log($"AStar: connections.Count={connections.Count} para {current}");
+                //Debug.Log($"AStar: connections.Count={connections.Count} para {current}");
 
                 for (int i = 0; i < connections.Count; i++)
                 {
@@ -102,7 +102,7 @@ public class AStar : MonoBehaviour
 
                     pending.Enqueue(child, currentCost + heur);
                     parents[child] = current;
-                    Debug.Log($"AStar: Enqueued child={child} cost={currentCost} priority={currentCost + heur}");
+                    //Debug.Log($"AStar: Enqueued child={child} cost={currentCost} priority={currentCost + heur}");
                     //T child = connections[i];
                     //if (child == null)
                     //{
@@ -124,7 +124,7 @@ public class AStar : MonoBehaviour
             }
         }
 
-        Debug.Log($"AStar: no se encontró path. pasos={steps}");
+        //Debug.Log($"AStar: no se encontró path. pasos={steps}");
         return new List<T>();
     }
     //{

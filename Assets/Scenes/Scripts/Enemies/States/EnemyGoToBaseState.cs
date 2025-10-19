@@ -34,7 +34,7 @@ public class EnemyGoToBaseState<T> : State<T>
 
     public override void Enter()
     {
-        Debug.Log($"Entering GoToEnemyBase State for {_user?.name} | start:{_start} goal:{_goal}");
+        //Debug.Log($"Entering GoToEnemyBase State for {_user?.name} | start:{_start} goal:{_goal}");
         if (_enemy == null)
             Debug.LogWarning($"{_user?.name}: _enemy es null en Enter()");
 
@@ -112,7 +112,7 @@ public class EnemyGoToBaseState<T> : State<T>
         _pathSet = true;
         _isFinishPath = false;
         _index = 0;
-        Debug.Log($"{_user?.name}: OnStartPath - waypoints count {_waypoints?.Count}");
+        //Debug.Log($"{_user?.name}: OnStartPath - waypoints count {_waypoints?.Count}");
     }
 
     public virtual void OnFinishPath()
@@ -120,7 +120,7 @@ public class EnemyGoToBaseState<T> : State<T>
         _pathSet = false;
         _isFinishPath = true;
         _enemy?.Move(Vector3.zero);
-        Debug.Log($"{_user?.name}: OnFinishPath triggered");
+        //Debug.Log($"{_user?.name}: OnFinishPath triggered");
     }
 
     public Node GetNearNode(Vector3 position)
@@ -146,7 +146,7 @@ public class EnemyGoToBaseState<T> : State<T>
 
     public void SetPathAStar()
     {
-        Debug.Log($"{_user?.name} - SetPathAStar start: {_start?.name} | goal: {_goal?.name}");
+        //Debug.Log($"{_user?.name} - SetPathAStar start: {_start?.name} | goal: {_goal?.name}");
 
         if (_start == null || _goal == null)
         {
@@ -170,7 +170,7 @@ public class EnemyGoToBaseState<T> : State<T>
             return;
         }
 
-        Debug.Log($"{_user?.name}: AStar path.Count = {path.Count}");
+        //Debug.Log($"{_user?.name}: AStar path.Count = {path.Count}");
         List<Vector3> pathVector = new List<Vector3>(path.Count);
         for (int i = 0; i < path.Count; i++)
         {
@@ -180,7 +180,7 @@ public class EnemyGoToBaseState<T> : State<T>
                 continue;
             }
             pathVector.Add(path[i].transform.position);
-            Debug.Log($"{_user?.name}: Path node[{i}] -> {path[i].name} id {path[i].GetInstanceID()}");
+            //Debug.Log($"{_user?.name}: Path node[{i}] -> {path[i].name} id {path[i].GetInstanceID()}");
         }
 
         SetWaypoints(pathVector);

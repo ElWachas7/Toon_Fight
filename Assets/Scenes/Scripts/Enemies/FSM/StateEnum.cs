@@ -7,4 +7,5 @@ public enum StateEnum
     Death,
     Attack,
     GoToBase,
+    ReachedBase
 }

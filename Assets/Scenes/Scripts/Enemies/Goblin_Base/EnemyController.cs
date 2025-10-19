@@ -14,16 +14,17 @@ public class EnemyController : MonoBehaviour
     public List<Node> endPoints;
     Node _start;
     Node _goal;
+    [SerializeField] private Health _health;
 
     [Header("Components")]
-    public int currentHealth;
+    public float currentHealth;
     public float speed;
     public float speedRot;
     public int damage;
     public float attackdelay;
     public int range;
 
-[Header("Behavior Tree")]
+    [Header("Behavior Tree")]
     ITreeNode _tree;
 
 
@@ -32,17 +33,23 @@ public class EnemyController : MonoBehaviour
     private EnemyDeathState<StateEnum> _deathState;
     private EnemyAttackState<StateEnum> _attackState;
     private EnemyGoToBaseState<StateEnum> _goToBaseState;
+    private EnemyReachedBase<StateEnum> _reachedBaseState;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        player = FindObjectOfType<PlayerMovement>();
+        spawnPoints.Add(FindAnyObjectByType<GameManager>().spawnPoint1);
+        spawnPoints.Add(FindAnyObjectByType<GameManager>().spawnPoint2);
+        endPoints.Add(FindAnyObjectByType<GameManager>().endPoint);
         _start = spawnPoints[Random.Range(0, spawnPoints.Count)];
         _goal = endPoints[Random.Range(0, endPoints.Count)];
         
+
     }
     private void Start()
     {
-        currentHealth = enemyData.health;
+        currentHealth = _health.EnemyHealth;
         speed = enemyData.speed;
         speedRot = enemyData.rotationSpeed;
         damage = enemyData.damage;
@@ -86,12 +93,15 @@ public class EnemyController : MonoBehaviour
         _deathState = new EnemyDeathState<StateEnum>(this);
         _attackState = new EnemyAttackState<StateEnum>(this, player, damage, attackdelay);
         _goToBaseState = new EnemyGoToBaseState<StateEnum>(this.transform, player.transform, _start, _goal);
+        _reachedBaseState = new EnemyReachedBase<StateEnum>(this);
 
         _goToBaseState.AddTransition(StateEnum.Attack, _attackState);
         _goToBaseState.AddTransition(StateEnum.Death, _deathState);
+        _goToBaseState.AddTransition(StateEnum.ReachedBase, _reachedBaseState);
         _attackState.AddTransition(StateEnum.GoToBase, _goToBaseState);
         _attackState.AddTransition(StateEnum.Death, _deathState);
         
+
         _fsm.SetInit(_goToBaseState);
     }
 
@@ -100,9 +110,10 @@ public class EnemyController : MonoBehaviour
         var death = new ActionNode(() => _fsm.Transition(StateEnum.Death));
         var attack = new ActionNode(() => _fsm.Transition(StateEnum.Attack));
         var goToBase = new ActionNode(() => _fsm.Transition(StateEnum.GoToBase));
+        var reachedBase = new ActionNode(() => _fsm.Transition(StateEnum.ReachedBase));
 
-
-        var isPlayerInRange = new QuestionNode(QuestionIsPlayerInRange, attack, goToBase);
+        var isEnemyAtBase = new QuestionNode(QuestionIsEnemyAtBase, reachedBase, goToBase);
+        var isPlayerInRange = new QuestionNode(QuestionIsPlayerInRange, attack, isEnemyAtBase);
         var isDead = new QuestionNode(QuestionIsHealth0, death, isPlayerInRange);
 
         _tree = isDead;
@@ -121,8 +132,18 @@ public class EnemyController : MonoBehaviour
     }
     bool QuestionIsPlayerInRange()
     {
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance <= enemyData.range)
+        //float distance = Vector3.Distance(transform.position, player.transform.position);
+        //if (distance <= enemyData.range)
+        //{
+        //    return true;
+        //}
+        return false;
+    }
+
+    bool QuestionIsEnemyAtBase()
+    {
+        float distance = Vector3.Distance(transform.position, _goal.transform.position);
+        if (distance <= 1.5f)
         {
             return true;
         }
