@@ -14,7 +14,7 @@ public class Health : MonoBehaviour, IEnemy
     {
         EnemyHealth -= damage;
 
-        if(EnemyHealth < 0) 
+        if(EnemyHealth <= 0) 
         {
             gameObject.SetActive(false);
         }

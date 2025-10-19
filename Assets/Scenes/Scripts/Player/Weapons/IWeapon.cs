@@ -4,8 +4,9 @@ using UnityEngine;
 
 public interface IWeapon
 { 
-    void Attack();
+    //void Attack();
     SphereCollider AttackArea { get; set; }
     float Radius { get; set;}
     Material Material { get; }
+    GameObject gameObject { get; }
 }

@@ -12,7 +12,6 @@ public class HitDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("entró " + other.name);

@@ -12,12 +12,7 @@ public class PlayerChangeWeapon : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space)) 
-        {
-            Attack();
-            
-        }
-        else if (Input.GetKeyDown(KeyCode.Q)) 
+        if (Input.GetKeyDown(KeyCode.Q)) 
         {
             NextWeapon();
         }
@@ -28,13 +23,16 @@ public class PlayerChangeWeapon : MonoBehaviour
         {
             // get the first weapon in hand
             weapon = weaponList[Index].GetComponent<IWeapon>();
+            weapon.gameObject.SetActive(true);
             SetWeaponStats();
         }
     }
     public void NextWeapon() 
     {
+        weapon.gameObject.SetActive(false);
         Index = (Index + 1) % weaponList.Length;
         weapon = weaponList[Index].GetComponent<IWeapon>();
+        weapon.gameObject.SetActive(true);
         SetWeaponStats();
     }
     public void SetWeaponStats() 
@@ -44,8 +42,8 @@ public class PlayerChangeWeapon : MonoBehaviour
             playerSprite.material = weapon.Material;
         }
     }
-    public void Attack() 
+    /*public void Attack() 
     {
         weapon?.Attack();
-    }
+    }*/
 }

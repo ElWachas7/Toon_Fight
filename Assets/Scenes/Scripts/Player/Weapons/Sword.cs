@@ -43,7 +43,7 @@ public class Sword : MonoBehaviour, IWeapon
         if (other.CompareTag("Enemy"))
         {
             IEnemy enemy = other.GetComponent<IEnemy>();
-            if (enemy != null && !enemiesInRange.Contains(enemy))
+            if (enemy != null && !enemiesInRange.Contains(enemy) && enemy.EnemyHealth > 0)
                 enemiesInRange.Add(enemy);
         }
     }
@@ -61,7 +61,7 @@ public class Sword : MonoBehaviour, IWeapon
     {
         foreach (IEnemy enemy in enemiesInRange)
         {
-            if (enemy != null)
+            if (enemy != null && enemy.EnemyHealth > 0)
             {
                 enemy.TakeDamage(Damage);
             }

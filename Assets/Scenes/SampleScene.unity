@@ -2404,6 +2404,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 867347116964149804, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 966691236607435029, guid: 3f9210891b073a14b89382fe488a75d9,
         type: 3}
       propertyPath: Damage
@@ -2417,13 +2422,33 @@ PrefabInstance:
     - target: {fileID: 1607844769589415964, guid: 3f9210891b073a14b89382fe488a75d9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1835745866399487176, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226730661452623101, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: Damage
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226730661452623101, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: arrowPool
+      value: 
+      objectReference: {fileID: 767993474}
     - target: {fileID: 2226730661452623101, guid: 3f9210891b073a14b89382fe488a75d9,
         type: 3}
       propertyPath: attackarea
       value: 
       objectReference: {fileID: 1216700419}
+    - target: {fileID: 2226730661452623101, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2707973517358495440, guid: 3f9210891b073a14b89382fe488a75d9,
         type: 3}
       propertyPath: m_LocalPosition.x
