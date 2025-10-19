@@ -38,10 +38,12 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _health = GetComponent<Health>();
         player = FindObjectOfType<PlayerMovement>();
         spawnPoints.Add(FindAnyObjectByType<GameManager>().spawnPoint1);
         spawnPoints.Add(FindAnyObjectByType<GameManager>().spawnPoint2);
         endPoints.Add(FindAnyObjectByType<GameManager>().endPoint);
+        endPoints.Add(FindAnyObjectByType<GameManager>().endPoint2);
         _start = spawnPoints[Random.Range(0, spawnPoints.Count)];
         _goal = endPoints[Random.Range(0, endPoints.Count)];
         

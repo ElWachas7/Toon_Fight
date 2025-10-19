@@ -29,7 +29,7 @@ public class Arrow : MonoBehaviour
     private IEnumerator MoveToTarget(IEnemy enemy)
     {
         Vector3 origin = transform.position;
-        while (enemy != null && elapsedTime < 5f)
+        while (enemy != null && elapsedTime < 3f)
         {
             elapsedTime += Time.deltaTime;
             // Calculamos nueva posición según el tiempo transcurrido

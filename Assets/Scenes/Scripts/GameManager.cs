@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Node spawnPoint1;
     public Node spawnPoint2;
     public Node endPoint;
+    public Node endPoint2;
     public EnemyController enemyPrefab;
     
     [SerializeField] private Transform _enemySpawn;

@@ -154,6 +154,7 @@ MonoBehaviour:
   player: {fileID: 0}
   spawnPoints: []
   endPoints: []
+  _health: {fileID: 0}
   currentHealth: 0
   speed: 0
   speedRot: 0
@@ -192,4 +193,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 2
-  enemyhealth: 0
+  enemyhealth: 400
