@@ -24,6 +24,7 @@ public class EnemyDeathState<T> : State<T>
     {
 
         Debug.Log("NPC has died.");
+        _user.NotifyDeath(); // Avisa al GameManager
         _user.gameObject.SetActive(false);
 
     }
