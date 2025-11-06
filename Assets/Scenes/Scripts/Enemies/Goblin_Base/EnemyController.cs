@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +36,9 @@ public class EnemyController : MonoBehaviour
     private EnemyGoToBaseState<StateEnum> _goToBaseState;
     private EnemyReachedBase<StateEnum> _reachedBaseState;
 
+
+    public event Action<EnemyController> OnEnemyDied;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -44,8 +48,8 @@ public class EnemyController : MonoBehaviour
         spawnPoints.Add(FindAnyObjectByType<GameManager>().spawnPoint2);
         endPoints.Add(FindAnyObjectByType<GameManager>().endPoint);
         endPoints.Add(FindAnyObjectByType<GameManager>().endPoint2);
-        _start = spawnPoints[Random.Range(0, spawnPoints.Count)];
-        _goal = endPoints[Random.Range(0, endPoints.Count)];
+        _start = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)];
+        _goal = endPoints[UnityEngine.Random.Range(0, endPoints.Count)];
         
 
     }
@@ -152,6 +156,11 @@ public class EnemyController : MonoBehaviour
         return false;
     }
 
+
+    public void NotifyDeath()
+    {
+        OnEnemyDied?.Invoke(this);
+    }
 
     void Update()
     {
