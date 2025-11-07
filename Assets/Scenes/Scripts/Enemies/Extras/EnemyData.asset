@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c55383ce570f647ac58cf39abdbd68, type: 3}
   m_Name: EnemyData
   m_EditorClassIdentifier: 
+  type: Goblin
   speed: 2
   rotationSpeed: 10
   damage: 10

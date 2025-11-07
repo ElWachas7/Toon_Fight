@@ -189,7 +189,7 @@ PrefabInstance:
     - target: {fileID: 7082557866886580373, guid: fef4667629dbefc4dabf5d8ccff19497,
         type: 3}
       propertyPath: damage
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7082557866886580373, guid: fef4667629dbefc4dabf5d8ccff19497,
         type: 3}
@@ -886,7 +886,7 @@ PrefabInstance:
     - target: {fileID: 7082557866886580373, guid: fef4667629dbefc4dabf5d8ccff19497,
         type: 3}
       propertyPath: damage
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7082557866886580373, guid: fef4667629dbefc4dabf5d8ccff19497,
         type: 3}
@@ -1085,7 +1085,7 @@ PrefabInstance:
     - target: {fileID: 7082557866886580373, guid: fef4667629dbefc4dabf5d8ccff19497,
         type: 3}
       propertyPath: damage
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8438640320816711596, guid: fef4667629dbefc4dabf5d8ccff19497,
         type: 3}
@@ -1268,7 +1268,7 @@ PrefabInstance:
     - target: {fileID: 7082557866886580373, guid: fef4667629dbefc4dabf5d8ccff19497,
         type: 3}
       propertyPath: damage
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7082557866886580373, guid: fef4667629dbefc4dabf5d8ccff19497,
         type: 3}
@@ -5804,8 +5804,10 @@ MonoBehaviour:
   spawnDelay: 5
   waveDelay: 5
   startingEnemies: 5
-  difficultyMultiplier: 1.3
   maxWaves: 5
+  spawnDelayDecreasePerWave: 0.1
+  enemyGrowthRate: 1.2
+  strongEnemyChanceIncrement: 0.1
   _enemySpawn: {fileID: 564841543}
   spawnPoint1: {fileID: 7742858356541346055}
   spawnPoint2: {fileID: 2017486819}
@@ -5815,6 +5817,7 @@ MonoBehaviour:
     type: 3}
   enemyPrefab2: {fileID: 4988934323009665443, guid: e052b51abf40c134ca45282f8b092ad4,
     type: 3}
+  money: 0
 --- !u!1001 &1997420688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5881,7 +5884,7 @@ PrefabInstance:
     - target: {fileID: 7082557866886580373, guid: fef4667629dbefc4dabf5d8ccff19497,
         type: 3}
       propertyPath: damage
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7082557866886580373, guid: fef4667629dbefc4dabf5d8ccff19497,
         type: 3}
@@ -6489,7 +6492,7 @@ PrefabInstance:
     - target: {fileID: 7082557866886580373, guid: fef4667629dbefc4dabf5d8ccff19497,
         type: 3}
       propertyPath: damage
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8438640320816711596, guid: fef4667629dbefc4dabf5d8ccff19497,
         type: 3}
