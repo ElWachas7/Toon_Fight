@@ -15,6 +15,9 @@ public class UnBuild : MonoBehaviour
 
     [SerializeField] private Canvas Button;
     [SerializeField] private Image RedRect;//barra lateral roja para mostrar que no se puede comprar
+    private float amplitude = 0.2f; //cuanto sube y baja
+    private float frequency = 2f; //velocidad
+    private Vector3 startPos;
 
     public PlayerEconomy playerEconomy;
     private bool chupeteInside; //significa que esta en rango de poder comprar
@@ -23,6 +26,7 @@ public class UnBuild : MonoBehaviour
 
     public void Awake()
     {
+        startPos = Button.transform.position;
         cross1.material = FarAway;
         cross2.material = FarAway;
     }
@@ -53,6 +57,9 @@ public class UnBuild : MonoBehaviour
     }
     private void ChangeColor()
     {
+        // Movimiento senoidal vertical
+        float newY = startPos.y + Mathf.Sin(Time.time * frequency) * amplitude;
+        Button.transform.position = new Vector3(startPos.x, newY, startPos.z);
         if (playerEconomy.Money <= 0)
         {
             cross1.material = noMoney;

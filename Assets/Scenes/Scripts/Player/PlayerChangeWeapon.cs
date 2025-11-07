@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerChangeWeapon : MonoBehaviour
 {
-    [SerializeField] MeshRenderer playerSprite; // hit area
     [SerializeField] MonoBehaviour[] weaponList; // all weapon List sword / lance / bowNArrow
+    [SerializeField] Image[] weaponListIm; 
     private int Index = 0;
     private IWeapon weapon; // weapon in hand
     
@@ -24,24 +25,20 @@ public class PlayerChangeWeapon : MonoBehaviour
             // get the first weapon in hand
             weapon = weaponList[Index].GetComponent<IWeapon>();
             weapon.gameObject.SetActive(true);
-            SetWeaponStats();
+            weaponListIm[Index].gameObject.SetActive(true);
         }
     }
     public void NextWeapon() 
     {
         weapon.gameObject.SetActive(false);
+        weaponListIm[Index].gameObject.SetActive(false);
         Index = (Index + 1) % weaponList.Length;
         weapon = weaponList[Index].GetComponent<IWeapon>();
         weapon.gameObject.SetActive(true);
-        SetWeaponStats();
+        weaponListIm[Index].gameObject.SetActive(true);
+        
     }
-    public void SetWeaponStats() 
-    {
-        if (weapon != null)
-        {
-            playerSprite.material = weapon.Material;
-        }
-    }
+   
     /*public void Attack() 
     {
         weapon?.Attack();

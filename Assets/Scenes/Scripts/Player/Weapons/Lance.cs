@@ -6,8 +6,6 @@ public class Lance : MonoBehaviour , IWeapon
 {
     [SerializeField] private float radius; //2.4
     public float Radius { get { return radius; } set { radius = value; } }
-    [SerializeField] private Material material; // Blue
-    public Material Material => material;
     [SerializeField] SphereCollider attackarea;
     public SphereCollider AttackArea { get { return attackarea; } set { attackarea = value; } }
 
