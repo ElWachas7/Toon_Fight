@@ -30,9 +30,15 @@ public class GameManager : MonoBehaviour
     public EnemyController enemyPrefab;             // Enemigo débil
     public EnemyController enemyPrefab2;            // Enemigo fuerte
 
+    [Header("Waves")]
     private int currentWave = 0;
     private List<GameObject> activeEnemies = new List<GameObject>();
     private bool spawningWave = false;
+
+    [Header("Economy")]
+    public int money = 0;
+
+
 
     private void Start()
     {
@@ -88,6 +94,8 @@ public class GameManager : MonoBehaviour
             EnemyController enemy = Instantiate(prefabToSpawn, _enemySpawn.position, Quaternion.identity);
             activeEnemies.Add(enemy.gameObject);
 
+            
+            
             enemy.OnEnemyDied += OnEnemyDied;
 
             yield return new WaitForSeconds(spawnDelay);
@@ -109,12 +117,31 @@ public class GameManager : MonoBehaviour
     {
         if (activeEnemies.Contains(enemy.gameObject))
         {
+            AddMoney(enemy);
             activeEnemies.Remove(enemy.gameObject);
         }
+        
+        
     }
 
     private void OnAllWavesCompleted()
     {
         Debug.Log(" Juego completado: todas las rondas superadas.");
     }
+
+    private void AddMoney(EnemyController enemy)
+    {
+        if (enemy.type == "Goblin")
+        {
+            money += 10;
+        }
+        else if (enemy.type == "Gordogoblin")
+        {
+            money += 20;
+        }
+        Debug.Log($"Dinero actual: {money}");
+        //agregar UI
+    }
+
+    
 }

@@ -12,24 +12,25 @@ public class EnemyDeathState<T> : State<T>
     }
     public override void Enter()
     {
-        Debug.Log("Entering Death State");
+        
         base.Enter();
+        Die();
     }
     public override void Execute()
     {
-        base.Execute();
-        Die();
+
     }
     public void Die()
     {
 
-        Debug.Log("NPC has died.");
+        _user._rb.velocity = Vector3.zero; // Detiene el movimiento del enemigo
         _user.NotifyDeath(); // Avisa al GameManager
-        _user.gameObject.SetActive(false);
 
+        
+        
     }
     public override void Exit()
     {
-        Debug.Log("Exiting Death State");
+       
     }
 }

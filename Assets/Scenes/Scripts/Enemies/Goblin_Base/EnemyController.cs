@@ -18,12 +18,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Health _health;
 
     [Header("Components")]
-    public float currentHealth;
+    public string type;
     public float speed;
     public float speedRot;
     public int damage;
     public float attackdelay;
     public int range;
+    public float enemyDelayAfterDeathForAnimation;
 
     [Header("Behavior Tree")]
     ITreeNode _tree;
@@ -55,7 +56,7 @@ public class EnemyController : MonoBehaviour
     }
     private void Start()
     {
-        currentHealth = _health.EnemyHealth;
+        type = enemyData.type;
         speed = enemyData.speed;
         speedRot = enemyData.rotationSpeed;
         damage = enemyData.damage;
@@ -128,7 +129,8 @@ public class EnemyController : MonoBehaviour
 
     bool QuestionIsHealth0()
     {
-        if (currentHealth <= 0)
+        
+        if (_health.EnemyHealth <= 0)
         {
             
             return true;
@@ -160,10 +162,17 @@ public class EnemyController : MonoBehaviour
     public void NotifyDeath()
     {
         OnEnemyDied?.Invoke(this);
+        StartCoroutine(WaitAndDie(enemyDelayAfterDeathForAnimation));
     }
-
+    
+    private IEnumerator WaitAndDie(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
+    }
     void Update()
     {
+        
         _fsm.OnUpdate();
         _tree.Execute();
 

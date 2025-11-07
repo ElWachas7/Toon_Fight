@@ -155,12 +155,13 @@ MonoBehaviour:
   spawnPoints: []
   endPoints: []
   _health: {fileID: 0}
-  currentHealth: 0
+  type: 
   speed: 0
   speedRot: 0
   damage: 0
   attackdelay: 0
   range: 0
+  enemyDelayAfterDeathForAnimation: 3
 --- !u!114 &3036008819420906221
 MonoBehaviour:
   m_ObjectHideFlags: 0
