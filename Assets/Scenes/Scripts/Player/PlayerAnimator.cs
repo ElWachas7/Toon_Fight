@@ -20,6 +20,7 @@ public class PlayerAnimator : MonoBehaviour
         }
         else if (playerMovement.Horizontal < -0.1 )
         {
+
             sprite.flipX = false;
         }
     }

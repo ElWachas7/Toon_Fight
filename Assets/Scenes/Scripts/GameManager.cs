@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
     [Header("Economy")]
     public int Money = 0;
     public int Exp = 0;
+    [SerializeField] private TextMeshProUGUI textoMoney;
 
 
     [NonSerialized]public static GameManager gameManagerSingleton;
@@ -55,7 +57,10 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
-
+    public void Update()
+    {
+        textoMoney.text = Money.ToString();
+    }
     private void Start()
     {
         StartCoroutine(StartWaves());
@@ -155,8 +160,6 @@ public class GameManager : MonoBehaviour
         {
             Money += 20;
         }
-        Debug.Log($"Dinero actual: {Money}");
-        //agregar UI
     }
 
     

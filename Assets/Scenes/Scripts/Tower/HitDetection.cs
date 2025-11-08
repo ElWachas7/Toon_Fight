@@ -24,7 +24,6 @@ public class HitDetection : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Algo salio");
         if (other.CompareTag("Enemy"))
         {
             IEnemy enemy = other.GetComponent<IEnemy>();
@@ -60,7 +59,6 @@ public class HitDetection : MonoBehaviour
 
     private void Atacar(IEnemy enemigo)
     {
-        Debug.Log("Atacando a enemigo");
         Arrow arrow = arrowPool.GetArrow();
         arrow.transform.position = shootingPoint.position;
         arrow.Shoot(enemigo, towerStats.damage, towerStats.projectileSpeed);
