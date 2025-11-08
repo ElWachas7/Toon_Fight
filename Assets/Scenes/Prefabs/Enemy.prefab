@@ -155,6 +155,7 @@ MonoBehaviour:
   spawnPoints: []
   endPoints: []
   _health: {fileID: 0}
+  maxHealth: 0
   type: 
   speed: 0
   speedRot: 0
@@ -193,5 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a992bda701221c74587e21a021e40c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  healthBarPrefab: {fileID: 586307940573389282, guid: b98e81fe739492e42a0b83b996c3b402,
+    type: 3}
+  healthBarInstance: {fileID: 0}
   distance: 2
   enemyhealth: 400

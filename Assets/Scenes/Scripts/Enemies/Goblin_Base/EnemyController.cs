@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public EnemyData enemyData;
     public PlayerMovement player;
 
+    
     [Header("Spawn Points & End Points")]
     public List<Node> spawnPoints;
     public List<Node> endPoints;
@@ -18,6 +19,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Health _health;
 
     [Header("Components")]
+    public float maxHealth;
     public string type;
     public float speed;
     public float speedRot;
@@ -25,6 +27,8 @@ public class EnemyController : MonoBehaviour
     public float attackdelay;
     public int range;
     public float enemyDelayAfterDeathForAnimation;
+
+    
 
     [Header("Behavior Tree")]
     ITreeNode _tree;
@@ -39,6 +43,7 @@ public class EnemyController : MonoBehaviour
 
 
     public event Action<EnemyController> OnEnemyDied;
+    public event Action<EnemyController> OnEnemyComplete;
 
     private void Awake()
     {
@@ -56,6 +61,7 @@ public class EnemyController : MonoBehaviour
     }
     private void Start()
     {
+        
         type = enemyData.type;
         speed = enemyData.speed;
         speedRot = enemyData.rotationSpeed;
@@ -65,6 +71,8 @@ public class EnemyController : MonoBehaviour
 
         InitializeFSM();
         InitializeTree();
+
+        
     }
 
 
@@ -164,7 +172,11 @@ public class EnemyController : MonoBehaviour
         OnEnemyDied?.Invoke(this);
         StartCoroutine(WaitAndDie(enemyDelayAfterDeathForAnimation));
     }
-    
+    public void NotifyCompletition()
+    {
+        OnEnemyComplete?.Invoke(this);
+        Destroy(gameObject);
+    }
     private IEnumerator WaitAndDie(float delay)
     {
         yield return new WaitForSeconds(delay);

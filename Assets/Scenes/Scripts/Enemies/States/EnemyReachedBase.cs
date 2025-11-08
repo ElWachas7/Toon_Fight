@@ -24,7 +24,8 @@ public class EnemyReachedBase<T> : State<T>
     {
         //Debug.Log("NPC has reached the base.");
         // Implement logic for when the enemy reaches the base
-        _user.gameObject.SetActive(false);
+        _user.NotifyCompletition();
+        
     }
     public override void Exit()
     {
