@@ -9,6 +9,10 @@ public class Lance : MonoBehaviour , IWeapon
     [SerializeField] SphereCollider attackarea;
     public SphereCollider AttackArea { get { return attackarea; } set { attackarea = value; } }
 
+    public float coolDown = 1.5f;
+    private float coolDownCounter;
+    public float CoolDownCounter => coolDownCounter;
+
     private void OnEnable()
     {
         AttackArea.radius = Radius;

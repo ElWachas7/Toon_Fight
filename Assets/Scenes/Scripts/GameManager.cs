@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -36,9 +37,24 @@ public class GameManager : MonoBehaviour
     private bool spawningWave = false;
 
     [Header("Economy")]
-    public int money = 0;
+    public int Money = 0;
+    public int Exp = 0;
 
 
+    [NonSerialized]public static GameManager gameManagerSingleton;
+    private void Awake()
+    {
+        if(gameManagerSingleton == null) 
+        {
+            gameManagerSingleton = this;
+        }
+        else if (gameManagerSingleton != this) 
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
@@ -86,7 +102,7 @@ public class GameManager : MonoBehaviour
 
             //  Probabilidad de enemigos fuertes crece por oleada
             float strongChance = Mathf.Clamp01(strongEnemyChanceIncrement * (currentWave - 1));
-            if (currentWave >= 2 && Random.value < strongChance)
+            if (currentWave >= 2 && UnityEngine.Random.value < strongChance)
                 prefabToSpawn = enemyPrefab2;
             else
                 prefabToSpawn = enemyPrefab;
@@ -133,13 +149,13 @@ public class GameManager : MonoBehaviour
     {
         if (enemy.type == "Goblin")
         {
-            money += 10;
+            Money += 10;
         }
         else if (enemy.type == "Gordogoblin")
         {
-            money += 20;
+            Money += 20;
         }
-        Debug.Log($"Dinero actual: {money}");
+        Debug.Log($"Dinero actual: {Money}");
         //agregar UI
     }
 

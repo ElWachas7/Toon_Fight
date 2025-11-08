@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     float vertical;
     float horizontal;
+    public float Horizontal => horizontal; //animator flip render
+    private Vector3 move;
+    public Vector3 Move => move; //animator necesita esta variable para determinar si se mueve el player
 
     private void Start()
     {
@@ -19,13 +22,10 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-        Vector3 move = transform.right * horizontal + transform.forward * vertical;
+        move = transform.right * horizontal + transform.forward * vertical;
         controller.Move(move * Speed * Time.deltaTime);
-        //Movement();
+        //para animaciones si se mueve o no
     }
-
-
-
 
     //Agregado de Nico para que el player pueda recibir daño, esta funcion es llamada desde EnemyAttackState
     public void GotHit(int damage)
@@ -38,25 +38,4 @@ public class PlayerMovement : MonoBehaviour
             // Aquí puedes agregar lógica adicional para cuando el jugador muere
         }
     }
-    /*
-     ALTERNATIVA SIN CHARACTER CONTROLLER
-    void Movement() 
-    {
-        if (Input.GetKey(KeyCode.W)) 
-        {
-            transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(-Vector3.forward * Speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.right * Speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(-Vector3.right * Speed * Time.deltaTime);
-        }
-    }*/
 }

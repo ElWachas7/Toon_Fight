@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class PlayerChangeWeapon : MonoBehaviour
 {
     [SerializeField] MonoBehaviour[] weaponList; // all weapon List sword / lance / bowNArrow
-    [SerializeField] Image[] weaponListIm; 
-    private int Index = 0;
+    [SerializeField] Image[] weaponListIm; //Para la UI
+    private int index = 0;
+    public int Index => index;//animator, index = weapon
     private IWeapon weapon; // weapon in hand
+    public IWeapon Weapon => weapon;
     
     private void Update()
     {
@@ -23,19 +25,19 @@ public class PlayerChangeWeapon : MonoBehaviour
         if (weaponList.Length > 0)
         {
             // get the first weapon in hand
-            weapon = weaponList[Index].GetComponent<IWeapon>();
+            weapon = weaponList[index].GetComponent<IWeapon>();
             weapon.gameObject.SetActive(true);
-            weaponListIm[Index].gameObject.SetActive(true);
+            weaponListIm[index].gameObject.SetActive(true);
         }
     }
     public void NextWeapon() 
     {
         weapon.gameObject.SetActive(false);
-        weaponListIm[Index].gameObject.SetActive(false);
-        Index = (Index + 1) % weaponList.Length;
-        weapon = weaponList[Index].GetComponent<IWeapon>();
+        weaponListIm[index].gameObject.SetActive(false);
+        index = (index + 1) % weaponList.Length;
+        weapon = weaponList[index].GetComponent<IWeapon>();
         weapon.gameObject.SetActive(true);
-        weaponListIm[Index].gameObject.SetActive(true);
+        weaponListIm[index].gameObject.SetActive(true);
         
     }
    

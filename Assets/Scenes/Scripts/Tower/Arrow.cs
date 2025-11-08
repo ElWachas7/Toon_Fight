@@ -29,7 +29,7 @@ public class Arrow : MonoBehaviour
     private IEnumerator MoveToTarget(IEnemy enemy)
     {
         Vector3 origin = transform.position;
-        while (enemy != null && elapsedTime < 3f)
+        while (enemy != null && enemyTransform != null && elapsedTime < 3f)
         {
             elapsedTime += Time.deltaTime;
             // Calculamos nueva posición según el tiempo transcurrido
@@ -45,7 +45,10 @@ public class Arrow : MonoBehaviour
         }
 
         // Cuando termina el recorrido o desaparece el enemigo
-        enemy.TakeDamage(damage);
+        if (enemy != null && enemyTransform != null && enemyTransform.gameObject.activeInHierarchy)
+        {
+            enemy.TakeDamage(damage);
+        }
         pool.Release(this);
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f6c903bdd6577254283e18c5abe96fe3
+guid: 1e2070123fa28714cb487350a0809296
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hero attack sword sprite_0
+      name: hero idle sprite_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 355
-        height: 275
+        width: 152
+        height: 259
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 240071716cd98a64da35debf53dae887
-      internalID: -1009301768
+      spriteID: 53ce4f6e6327c874682a9a47e55eee3c
+      internalID: 1089950055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero attack sword sprite_1
+      name: hero idle sprite_1
       rect:
         serializedVersion: 2
-        x: 355
+        x: 152
         y: 0
-        width: 355
-        height: 275
+        width: 152
+        height: 259
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0cc584900168534bb24aeda0ac0cb4e
-      internalID: -621475572
+      spriteID: 5ce563f0b3814764bbdca17d9031981b
+      internalID: 751238844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero attack sword sprite_2
+      name: hero idle sprite_2
       rect:
         serializedVersion: 2
-        x: 710
+        x: 304
         y: 0
-        width: 355
-        height: 275
+        width: 152
+        height: 259
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff215dacb79871d4d8f0170a81aa817c
-      internalID: -369597383
+      spriteID: 0794f38aa2840114aad39973ca83464a
+      internalID: -1168491596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero attack sword sprite_3
+      name: hero idle sprite_3
       rect:
         serializedVersion: 2
-        x: 1065
+        x: 456
         y: 0
-        width: 355
-        height: 275
+        width: 152
+        height: 259
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff3b662805152d54196a48c8293871d9
-      internalID: 1633646924
+      spriteID: e812e3edb6170ac4ca9598f778c5b158
+      internalID: -1400047466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero attack sword sprite_4
+      name: hero idle sprite_4
       rect:
         serializedVersion: 2
-        x: 1420
+        x: 608
         y: 0
-        width: 355
-        height: 275
+        width: 152
+        height: 259
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39d6c025757e4cc418ba1da182876b3a
-      internalID: -264778363
+      spriteID: d3d7cbb16cb0c304886ec64def49e6a6
+      internalID: 996502625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero attack sword sprite_5
+      name: hero idle sprite_5
       rect:
         serializedVersion: 2
-        x: 1775
+        x: 760
         y: 0
-        width: 355
-        height: 275
+        width: 152
+        height: 259
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3523388192a8e9419686d233add5a91
-      internalID: -1626091331
+      spriteID: d8a8b5bdac99f8f4f8e9f985fe183feb
+      internalID: -774651513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero attack sword sprite_6
+      name: hero idle sprite_6
       rect:
         serializedVersion: 2
-        x: 2130
+        x: 912
         y: 0
-        width: 355
-        height: 275
+        width: 152
+        height: 259
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,8 +250,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83a2dd6f0681b074d89ccae80b26b4db
-      internalID: 746360033
+      spriteID: 21986c97711a1204291f638374e64f67
+      internalID: 1723560072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero idle sprite_7
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 0
+        width: 152
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20b56909b2f5cf469283d8ff8a33274
+      internalID: -519851462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero idle sprite_8
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 0
+        width: 152
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc6bac86d2343f4385eaff01cde2d42
+      internalID: -947071090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero idle sprite_9
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 0
+        width: 152
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310a7bf57cb7a5f45b4219d79fceb0ce
+      internalID: -1955843592
       vertices: []
       indices: 
       edges: []
@@ -259,7 +322,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 732b2554b39ec244ea5b69cf8a2b4e39
+    spriteID: f4abed9a6c0bbcd49b52166a601f4eee
     internalID: 0
     vertices: []
     indices: 
@@ -267,13 +330,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hero attack sword sprite_0: -1009301768
-      Hero attack sword sprite_1: -621475572
-      Hero attack sword sprite_2: -369597383
-      Hero attack sword sprite_3: 1633646924
-      Hero attack sword sprite_4: -264778363
-      Hero attack sword sprite_5: -1626091331
-      Hero attack sword sprite_6: 746360033
+      hero idle sprite_0: 1089950055
+      hero idle sprite_1: 751238844
+      hero idle sprite_2: -1168491596
+      hero idle sprite_3: -1400047466
+      hero idle sprite_4: 996502625
+      hero idle sprite_5: -774651513
+      hero idle sprite_6: 1723560072
+      hero idle sprite_7: -519851462
+      hero idle sprite_8: -947071090
+      hero idle sprite_9: -1955843592
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

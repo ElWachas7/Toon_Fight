@@ -19,7 +19,7 @@ public class UnBuild : MonoBehaviour
     private float frequency = 2f; //velocidad
     private Vector3 startPos;
 
-    public PlayerEconomy playerEconomy;
+    
     private bool chupeteInside; //significa que esta en rango de poder comprar
     [SerializeField] public GameObject Builded;
 
@@ -60,7 +60,7 @@ public class UnBuild : MonoBehaviour
         // Movimiento senoidal vertical
         float newY = startPos.y + Mathf.Sin(Time.time * frequency) * amplitude;
         Button.transform.position = new Vector3(startPos.x, newY, startPos.z);
-        if (playerEconomy.Money <= 0)
+        if (GameManager.gameManagerSingleton.Money <= 0)
         {
             cross1.material = noMoney;
             cross2.material = noMoney;

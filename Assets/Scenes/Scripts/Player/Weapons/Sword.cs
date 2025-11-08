@@ -12,26 +12,31 @@ public class Sword : MonoBehaviour, IWeapon
 
     [SerializeField] private float Damage;
 
-    public float coolDown = 1.5f;
+    public float coolDown;
     private float coolDownCounter;
+    public float CoolDownCounter => coolDownCounter;
     private List<IEnemy> enemiesInRange = new List<IEnemy>();
 
 
     private void OnEnable()
     {
         AttackArea.radius = Radius;
-        coolDownCounter = 0f;
+        coolDownCounter = coolDown;
     }
 
     private void Update()
     {
-        if (coolDownCounter < coolDown)
-            coolDownCounter += Time.deltaTime;
-
-        if (coolDownCounter >= coolDown && enemiesInRange.Count > 0)
+        if (enemiesInRange.Count == 0)
+        {
+            coolDownCounter = coolDown; // esto deberia cambiarse por movimiento, pero todavia no hay combate
+            return; 
+        }
+        
+        coolDownCounter -= Time.deltaTime;
+        if (coolDownCounter <= 0)
         {
             Attack();
-            coolDownCounter = 0f;
+            coolDownCounter = coolDown;
         }
     }
 

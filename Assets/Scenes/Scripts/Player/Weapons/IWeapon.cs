@@ -8,4 +8,5 @@ public interface IWeapon
     SphereCollider AttackArea { get; set; }
     float Radius { get; set;}
     GameObject gameObject { get; }
+    float CoolDownCounter { get; }
 }

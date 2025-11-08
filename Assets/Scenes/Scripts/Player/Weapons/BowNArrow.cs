@@ -14,18 +14,23 @@ public class BowNArrow : MonoBehaviour , IWeapon
     [SerializeField] private ArrowPool arrowPool;
     [SerializeField] private int Damage;
     [SerializeField] private float projectileSpeed;
-    public float coolDown = 1.5f;
+    public float coolDown;
     private float coolDownCounter;
+    public float CoolDownCounter => coolDownCounter;
     private List<IEnemy> enemiesInRange = new List<IEnemy>();
 
     private void OnEnable() // se mantiene
     {
         AttackArea.radius = Radius;
-        coolDownCounter = 0f;
+        coolDownCounter = coolDown;
     }
     private void Update() // se mantiene
     {
-        if (enemiesInRange.Count == 0) return;
+        if (enemiesInRange.Count == 0)
+        {
+            coolDownCounter = coolDown;
+            return; 
+        }
 
         IEnemy objetivo = null;
         float menorDistancia = Mathf.Infinity;
@@ -75,13 +80,12 @@ public class BowNArrow : MonoBehaviour , IWeapon
 
     public void Cooldown(IEnemy objetivo) 
     {
-        if (coolDownCounter < coolDown)
-            coolDownCounter += Time.deltaTime;
+        coolDownCounter -= Time.deltaTime;
 
-        if (coolDownCounter >= coolDown && enemiesInRange.Count > 0)
+        if (coolDownCounter <= 0 && enemiesInRange.Count > 0)
         {
             Attack(objetivo);
-            coolDownCounter = 0f;
+            coolDownCounter = coolDown;
         }
     }
 }
