@@ -20,8 +20,9 @@ public class UnBuild : MonoBehaviour
     private Vector3 startPos;
 
     
-    private bool chupeteInside; //significa que esta en rango de poder comprar
+    private bool inRangeToBuy; //significa que esta en rango de poder comprar
     [SerializeField] public GameObject Builded;
+    [SerializeField] public int Price;
 
 
     public void Awake()
@@ -34,7 +35,7 @@ public class UnBuild : MonoBehaviour
     {
         if (other != null && other.CompareTag("Player"))
         {
-            chupeteInside = true;
+            inRangeToBuy = true;
             Button.gameObject.SetActive(true);
         }
     }
@@ -43,7 +44,7 @@ public class UnBuild : MonoBehaviour
     {
         if (other != null && other.CompareTag("Player"))
         {
-            chupeteInside = false;
+            inRangeToBuy = false;
             cross1.material = FarAway;
             cross2.material = FarAway;
             Button.gameObject.SetActive(false);
@@ -52,7 +53,7 @@ public class UnBuild : MonoBehaviour
 
     public void Update()
     {
-        if (chupeteInside)
+        if (inRangeToBuy)
         { ChangeColor(); }
     }
     private void ChangeColor()
@@ -60,21 +61,22 @@ public class UnBuild : MonoBehaviour
         // Movimiento senoidal vertical
         float newY = startPos.y + Mathf.Sin(Time.time * frequency) * amplitude;
         Button.transform.position = new Vector3(startPos.x, newY, startPos.z);
-        if (GameManager.gameManagerSingleton.Money <= 0)
+        if (GameManager.gameManagerSingleton.Money < Price)
         {
-            cross1.material = noMoney;
+            cross1.material = noMoney; //no se puede comprar
             cross2.material = noMoney;
             RedRect.gameObject.SetActive(true);
         }
         else
         {
-            cross1.material = CanBuy;
+            cross1.material = CanBuy; // se puede comprar
             cross2.material = CanBuy;
             RedRect.gameObject.SetActive(false);
             if (Input.GetKeyDown(KeyCode.E)) 
             {
                 Builded.SetActive(true);
                 this.gameObject.SetActive(false);
+                GameManager.gameManagerSingleton.Money -= Price;
             }
         }
     }

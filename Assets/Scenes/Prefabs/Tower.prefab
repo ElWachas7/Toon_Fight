@@ -541,7 +541,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4656995694009017895}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 31.14, y: 26.599548, z: -86.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1506,8 +1506,8 @@ MonoBehaviour:
   noMoney: {fileID: 2100000, guid: fda707f3e47b4484784881eee40b69e2, type: 2}
   Button: {fileID: 656254483837762287}
   RedRect: {fileID: 755705564001493095}
-  playerEconomy: {fileID: 0}
   Builded: {fileID: 3811842599646423064}
+  Price: 5
 --- !u!1 &8222923624933933981
 GameObject:
   m_ObjectHideFlags: 0

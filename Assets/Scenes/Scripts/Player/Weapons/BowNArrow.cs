@@ -18,14 +18,22 @@ public class BowNArrow : MonoBehaviour , IWeapon
     private float coolDownCounter;
     public float CoolDownCounter => coolDownCounter;
     private List<IEnemy> enemiesInRange = new List<IEnemy>();
+    [SerializeField] private int enemiesInRangeCant;
 
     private void OnEnable() // se mantiene
     {
         AttackArea.radius = Radius;
         coolDownCounter = coolDown;
     }
+
+    private void OnDisable()
+    {
+        enemiesInRange.Clear();
+        coolDownCounter = coolDown;
+    }
     private void Update() // se mantiene
     {
+        enemiesInRangeCant = enemiesInRange.Count;
         if (enemiesInRange.Count == 0)
         {
             coolDownCounter = coolDown;
@@ -38,6 +46,9 @@ public class BowNArrow : MonoBehaviour , IWeapon
         foreach (IEnemy enemigo in enemiesInRange)
         {
             //float distancia = Vector3.Distance(transform.position, enemigo.transform.position);
+            if (enemigo == null || !((MonoBehaviour)enemigo).gameObject.activeInHierarchy)
+                continue;
+
             if (enemigo.Distance < menorDistancia)
             {
                 menorDistancia = enemigo.Distance;

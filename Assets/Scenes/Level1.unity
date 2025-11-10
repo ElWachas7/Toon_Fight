@@ -512,11 +512,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4686368680776873687, guid: f875a8580ae3c3942bf74e4ae65cb177,
-        type: 3}
-      propertyPath: playerEconomy
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7060606106537932339, guid: f875a8580ae3c3942bf74e4ae65cb177,
         type: 3}
       propertyPath: arrowPool
@@ -3561,7 +3556,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6417,11 +6412,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686368680776873687, guid: f875a8580ae3c3942bf74e4ae65cb177,
-        type: 3}
-      propertyPath: playerEconomy
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7060606106537932339, guid: f875a8580ae3c3942bf74e4ae65cb177,
         type: 3}
