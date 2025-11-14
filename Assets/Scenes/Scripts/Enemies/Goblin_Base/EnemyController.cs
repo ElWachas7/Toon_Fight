@@ -78,7 +78,7 @@ public class EnemyController : MonoBehaviour
 
     public void Move(Vector3 dir)
     {
-        dir = _obs.GetDir(dir);
+        //dir = _obs.GetDir(dir);
         dir *= speed;
         dir.y = _rb.velocity.y;
         _rb.velocity = dir;
