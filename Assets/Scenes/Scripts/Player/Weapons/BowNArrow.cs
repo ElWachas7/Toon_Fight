@@ -46,8 +46,12 @@ public class BowNArrow : MonoBehaviour , IWeapon
         foreach (IEnemy enemigo in enemiesInRange)
         {
             //float distancia = Vector3.Distance(transform.position, enemigo.transform.position);
-            if (enemigo == null || !((MonoBehaviour)enemigo).gameObject.activeInHierarchy)
-                continue;
+            if (enemigo.EnemyHealth <= 50) // aca aplicar la logica de obtener el enemigo con menor dist
+            {
+                enemiesInRange.Remove(enemigo); // esto deberia eliminar al enemigo muerto
+                Debug.Log("ELIMINADO");
+            }
+            
 
             if (enemigo.Distance < menorDistancia)
             {

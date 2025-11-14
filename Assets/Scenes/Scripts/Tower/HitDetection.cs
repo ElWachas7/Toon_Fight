@@ -14,7 +14,7 @@ public class HitDetection : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("entró " + other.name);
+            //Debug.Log("entró " + other.name);
             IEnemy enemy = other.GetComponent<IEnemy>();
             if (enemy != null && !enemiesInRange.Contains(enemy))
             {

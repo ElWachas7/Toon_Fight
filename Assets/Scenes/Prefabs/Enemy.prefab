@@ -162,7 +162,7 @@ MonoBehaviour:
   damage: 0
   attackdelay: 0
   range: 0
-  enemyDelayAfterDeathForAnimation: 3
+  enemyDelayAfterDeathForAnimation: 0
 --- !u!114 &3036008819420906221
 MonoBehaviour:
   m_ObjectHideFlags: 0
