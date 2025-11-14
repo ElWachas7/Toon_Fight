@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4118249458312803236}
   - component: {fileID: 586307940573389282}
   m_Layer: 5
-  m_Name: Healthbar
+  m_Name: Healthbar 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +269,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 347742969, guid: aff15345048a3b2499cb715054678277, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.990005, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

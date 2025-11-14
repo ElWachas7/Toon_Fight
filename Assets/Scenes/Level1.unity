@@ -8095,10 +8095,25 @@ PrefabInstance:
       propertyPath: weaponListIm.Array.data[2]
       value: 
       objectReference: {fileID: 1841157788}
+    - target: {fileID: 867347116964149804, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 966691236607435029, guid: 3f9210891b073a14b89382fe488a75d9,
         type: 3}
       propertyPath: coolDown
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607844769589415964, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1835745866399487176, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2226730661452623101, guid: 3f9210891b073a14b89382fe488a75d9,
         type: 3}
@@ -8170,6 +8185,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4506316574630664950, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4718409695099126080, guid: 3f9210891b073a14b89382fe488a75d9,
         type: 3}
       propertyPath: m_FlipX
@@ -8185,10 +8205,20 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4718409695099126080, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4970270448282370576, guid: 3f9210891b073a14b89382fe488a75d9,
         type: 3}
       propertyPath: Damage
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623438405217642937, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7651168271748130146, guid: 3f9210891b073a14b89382fe488a75d9,
         type: 3}
@@ -8209,6 +8239,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124276821334221231, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161788785046814949, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317723928189849466, guid: 3f9210891b073a14b89382fe488a75d9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 132773710763059538, guid: 3f9210891b073a14b89382fe488a75d9, type: 3}

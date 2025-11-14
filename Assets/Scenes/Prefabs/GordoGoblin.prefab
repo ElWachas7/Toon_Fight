@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 0
-  healthBarPrefab: {fileID: 586307940573389282, guid: b98e81fe739492e42a0b83b996c3b402,
+  healthBarPrefab: {fileID: 586307940573389282, guid: 888e547e717b65b45afb9d25151c0758,
     type: 3}
   healthBarInstance: {fileID: 0}
   distance: 2
