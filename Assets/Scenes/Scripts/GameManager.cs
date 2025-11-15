@@ -44,12 +44,13 @@ public class GameManager : MonoBehaviour
     [Header("Enemies")]
     public EnemyController enemyPrefab;
     public EnemyController enemyPrefab2;
+    public EnemyController enemyPrefab3;
 
    
 
     [Header("Economy")]
-    public int Money = 0;
-    public int Exp = 0;
+    public int money = 0;
+    public int exp = 0;
     [SerializeField] private TextMeshProUGUI textoMoney;
 
     [NonSerialized] public static GameManager gameManagerSingleton;
@@ -77,7 +78,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        textoMoney.text = Money.ToString();
+        textoMoney.text = money.ToString();
     }
 
     private IEnumerator StartWaves()
@@ -127,6 +128,8 @@ public class GameManager : MonoBehaviour
 
             float strongChance = Mathf.Clamp01(strongEnemyChanceIncrement * (currentWave - 1));
             if (currentWave >= 2 && UnityEngine.Random.value < strongChance)
+                prefabToSpawn = enemyPrefab3;
+            else if (currentWave >= 3 && UnityEngine.Random.value < strongChance)
                 prefabToSpawn = enemyPrefab2;
             else
                 prefabToSpawn = enemyPrefab;
@@ -178,8 +181,10 @@ public class GameManager : MonoBehaviour
     private void AddMoney(EnemyController enemy)
     {
         if (enemy.type == "Goblin")
-            Money += 10;
+            money += 10;
         else if (enemy.type == "Gordogoblin")
-            Money += 20;
+            money += 20;
+        else if (enemy.type == "FlyGob")
+            money += 5;
     }
 }

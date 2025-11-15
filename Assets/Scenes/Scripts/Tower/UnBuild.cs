@@ -61,7 +61,7 @@ public class UnBuild : MonoBehaviour
         // Movimiento senoidal vertical
         float newY = startPos.y + Mathf.Sin(Time.time * frequency) * amplitude;
         Button.transform.position = new Vector3(startPos.x, newY, startPos.z);
-        if (GameManager.gameManagerSingleton.Money < Price)
+        if (GameManager.gameManagerSingleton.money < Price)
         {
             cross1.material = noMoney; //no se puede comprar
             cross2.material = noMoney;
@@ -76,7 +76,7 @@ public class UnBuild : MonoBehaviour
             {
                 Builded.SetActive(true);
                 this.gameObject.SetActive(false);
-                GameManager.gameManagerSingleton.Money -= Price;
+                GameManager.gameManagerSingleton.money -= Price;
             }
         }
     }
