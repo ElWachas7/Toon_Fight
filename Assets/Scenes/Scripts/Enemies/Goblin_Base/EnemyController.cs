@@ -1,4 +1,5 @@
 using System;
+using System.Buffers.Text;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +29,6 @@ public class EnemyController : MonoBehaviour
     public int range;
     public float enemyDelayAfterDeathForAnimation;
 
-    
 
     [Header("Behavior Tree")]
     ITreeNode _tree;
@@ -68,6 +68,7 @@ public class EnemyController : MonoBehaviour
         damage = enemyData.damage;
         attackdelay = enemyData.attackDelay;
         range = enemyData.range;
+        
 
         InitializeFSM();
         InitializeTree();  
@@ -76,10 +77,12 @@ public class EnemyController : MonoBehaviour
 
     public void Move(Vector3 dir)
     {
-        //dir = _obs.GetDir(dir);
+        dir = _obs.GetDir(dir);
         dir *= speed;
         dir.y = _rb.velocity.y;
         _rb.velocity = dir;
+
+        
     }
 
     public void LookDir(Vector3 dir)

@@ -32,7 +32,7 @@ public class Health : MonoBehaviour, IEnemy
         if (healthBarPrefab != null)
         {
             healthBarInstance = Instantiate(healthBarPrefab, transform.position, Quaternion.identity);
-            healthBarInstance.Initialize(transform);
+            healthBarInstance.Initialize(transform, enemyController.type);
             healthBarInstance.UpdateHealth(enemyhealth, maxHealth);
         }
     }
