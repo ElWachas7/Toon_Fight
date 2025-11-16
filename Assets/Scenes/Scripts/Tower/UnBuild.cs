@@ -14,7 +14,7 @@ public class UnBuild : MonoBehaviour
     [SerializeField] private Material noMoney; //suficientemente cerca pero no puede comprarlo
 
     [SerializeField] private Canvas Button;
-    [SerializeField] private Image RedRect;//barra lateral roja para mostrar que no se puede comprar
+    [SerializeField] private Image[] RedRect;//barra lateral roja para mostrar que no se puede comprar
     private float amplitude = 0.2f; //cuanto sube y baja
     private float frequency = 2f; //velocidad
     private Vector3 startPos;
@@ -66,13 +66,15 @@ public class UnBuild : MonoBehaviour
         {
             cross1.material = noMoney; //no se puede comprar
             cross2.material = noMoney;
-            RedRect.gameObject.SetActive(true);
+            RedRect[0].gameObject.SetActive(true); // esto deberia cambiarse porque tener un array para 2 es medio raro
+            RedRect[1].gameObject.SetActive(true);
         }
         else
         {
             cross1.material = CanBuy; // se puede comprar
             cross2.material = CanBuy;
-            RedRect.gameObject.SetActive(false);
+            RedRect[0].gameObject.SetActive(false);
+            RedRect[1].gameObject.SetActive(false);
             if (Input.GetKeyDown(KeyCode.E)) 
             {
                 ArrowTower.SetActive(true);
