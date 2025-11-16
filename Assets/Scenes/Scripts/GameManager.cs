@@ -42,9 +42,9 @@ public class GameManager : MonoBehaviour
     public Node endPoint2;
 
     [Header("Enemies")]
-    public EnemyController enemyPrefab;
-    public EnemyController enemyPrefab2;
-    public EnemyController enemyPrefab3;
+    public EnemyController goblin;
+    public EnemyController gordogoblin;
+    public EnemyController flygob;
 
    
 
@@ -128,11 +128,12 @@ public class GameManager : MonoBehaviour
 
             float strongChance = Mathf.Clamp01(strongEnemyChanceIncrement * (currentWave - 1));
             if (currentWave >= 2 && UnityEngine.Random.value < strongChance)
-                prefabToSpawn = enemyPrefab3;
+                prefabToSpawn = gordogoblin;
             else if (currentWave >= 3 && UnityEngine.Random.value < strongChance)
-                prefabToSpawn = enemyPrefab2;
+                prefabToSpawn = flygob;
             else
-                prefabToSpawn = enemyPrefab;
+                prefabToSpawn = goblin;
+                
 
             EnemyController enemy = Instantiate(prefabToSpawn, _enemySpawn.position, Quaternion.identity);
             activeEnemies.Add(enemy.gameObject);
