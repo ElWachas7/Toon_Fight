@@ -21,7 +21,8 @@ public class UnBuild : MonoBehaviour
 
     
     private bool inRangeToBuy; //significa que esta en rango de poder comprar
-    [SerializeField] public GameObject Builded;
+    [SerializeField] public GameObject ArrowTower;
+    [SerializeField] public GameObject StoneTower;
     [SerializeField] public int Price;
 
 
@@ -74,7 +75,13 @@ public class UnBuild : MonoBehaviour
             RedRect.gameObject.SetActive(false);
             if (Input.GetKeyDown(KeyCode.E)) 
             {
-                Builded.SetActive(true);
+                ArrowTower.SetActive(true);
+                this.gameObject.SetActive(false);
+                GameManager.gameManagerSingleton.Money -= Price;
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                StoneTower.SetActive(true);
                 this.gameObject.SetActive(false);
                 GameManager.gameManagerSingleton.Money -= Price;
             }

@@ -36,7 +36,7 @@ public class StonePool : MonoBehaviour
     }
 
     //a function for the tower
-    public Stone GetArrow()
+    public Stone GetStone()
     {
         return stonePool.Get();
     }

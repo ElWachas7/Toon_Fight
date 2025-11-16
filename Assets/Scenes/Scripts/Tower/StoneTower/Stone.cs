@@ -40,8 +40,13 @@ public class Stone : MonoBehaviour
             // Mirar hacia adelante en la dirección del movimiento
             transform.forward = initialSpeed + Physics.gravity * elapsedTime;
 
-            if (Vector3.Distance(transform.position, enemyTransform.position) < 0.3f)
-                break;
+
+            //if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 0.3f)) Si no tiene altura 0 el mapa
+            if (transform.position.y <= 0.1f) // cambiamos la logica por algo que explota en radio
+            {
+                Explode();
+                yield break;
+            }
 
             yield return null;
         }
@@ -51,6 +56,23 @@ public class Stone : MonoBehaviour
         {
             enemy.TakeDamage(damage);
         }
+        pool.Release(this);
+    }
+
+    private void Explode()
+    {
+        float radius = 3f;
+        Collider[] hits = Physics.OverlapSphere(transform.position, radius);
+
+        foreach (Collider hit in hits)
+        {
+            IEnemy enemy = hit.GetComponent<IEnemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+        }
+
         pool.Release(this);
     }
 

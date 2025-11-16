@@ -70,9 +70,7 @@ public class EnemyController : MonoBehaviour
         range = enemyData.range;
 
         InitializeFSM();
-        InitializeTree();
-
-        
+        InitializeTree();  
     }
 
 
