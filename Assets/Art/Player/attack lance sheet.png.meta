@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9c9f1e34ee77a64e8f875d95a4b743c
+guid: 70a1629bce89ae34daacf37f6f9cb08d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gordoblin walk sprite_0
+      name: attack lance sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 312
-        height: 255
+        width: 690
+        height: 284
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21e971be63be6a2499a5b93ffc2dc190
-      internalID: -341126274
+      spriteID: a1c45bd75365ff049a5c414846ed2dee
+      internalID: -1135908466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gordoblin walk sprite_1
+      name: attack lance sheet_1
       rect:
         serializedVersion: 2
-        x: 312
+        x: 690
         y: 0
-        width: 312
-        height: 255
+        width: 690
+        height: 284
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dddba562a086dcb46b6528b0eb74b886
-      internalID: 124577427
+      spriteID: 478c8077930fc32429c271f001a5112d
+      internalID: 1862634943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gordoblin walk sprite_2
+      name: attack lance sheet_2
       rect:
         serializedVersion: 2
-        x: 624
+        x: 1380
         y: 0
-        width: 312
-        height: 255
+        width: 690
+        height: 284
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c45d8dec82b6a242b3f888df1c97fa5
-      internalID: 1446980017
+      spriteID: 5e2a0d3a118b7f44b867a1ed9c6ef0fa
+      internalID: 1860032758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gordoblin walk sprite_3
+      name: attack lance sheet_3
       rect:
         serializedVersion: 2
-        x: 936
+        x: 2070
         y: 0
-        width: 312
-        height: 255
+        width: 690
+        height: 284
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62c1c37b375e5fd4db04e2ee2aeb5efc
-      internalID: -2021015722
+      spriteID: ff5f57e8dc4655549b027d0a207d3bc1
+      internalID: -1078050543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gordoblin walk sprite_4
+      name: attack lance sheet_4
       rect:
         serializedVersion: 2
-        x: 1248
+        x: 2760
         y: 0
-        width: 312
-        height: 255
+        width: 690
+        height: 284
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 860a8bf0ff788b847abdcc5227896734
-      internalID: 966846734
+      spriteID: 86caac3f156a5054abe98e4646d3e76c
+      internalID: -1770439017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gordoblin walk sprite_5
+      name: attack lance sheet_5
       rect:
         serializedVersion: 2
-        x: 1560
+        x: 3450
         y: 0
-        width: 312
-        height: 255
+        width: 690
+        height: 284
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 373454b09ffe9ec46b0705320cf0d31b
-      internalID: -1590010848
+      spriteID: fab36431db3356344bc8af2379e1d2c6
+      internalID: 388878045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gordoblin walk sprite_6
+      name: attack lance sheet_6
       rect:
         serializedVersion: 2
-        x: 1872
+        x: 4140
         y: 0
-        width: 312
-        height: 255
+        width: 690
+        height: 284
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,20 +250,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af8f6c24e6291c04a852dfa5b1c77836
-      internalID: -692987787
+      spriteID: e8c9dc3bc030fdd44a7b436a8f4edb85
+      internalID: 195820710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gordoblin walk sprite_7
+      name: attack lance sheet_7
       rect:
         serializedVersion: 2
-        x: 2184
+        x: 4830
         y: 0
-        width: 312
-        height: 255
+        width: 690
+        height: 284
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,113 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ee3cc4214930eb439799ab4c22e0b6b
-      internalID: 223784143
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gordoblin walk sprite_8
-      rect:
-        serializedVersion: 2
-        x: 2496
-        y: 0
-        width: 312
-        height: 255
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4df60daab6f85254ebddc20e1fc7862f
-      internalID: 2070593608
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gordoblin walk sprite_9
-      rect:
-        serializedVersion: 2
-        x: 2808
-        y: 0
-        width: 312
-        height: 255
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23bad66b249cb4c46a2493ccfed10c41
-      internalID: -1598316327
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gordoblin walk sprite_10
-      rect:
-        serializedVersion: 2
-        x: 3120
-        y: 0
-        width: 312
-        height: 255
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 764727ce6e42f3d40bc68ca0da00a300
-      internalID: 698683352
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gordoblin walk sprite_11
-      rect:
-        serializedVersion: 2
-        x: 3432
-        y: 0
-        width: 312
-        height: 255
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a945803bf488ec042b979380df81de3e
-      internalID: -1262043598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gordoblin walk sprite_12
-      rect:
-        serializedVersion: 2
-        x: 3744
-        y: 0
-        width: 312
-        height: 255
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 346079acc02eb9e48b6ae9c222af9faf
-      internalID: -317591479
+      spriteID: 8d2b2c04e49cc174bbf51b5fbc973d66
+      internalID: -1037488246
       vertices: []
       indices: 
       edges: []
@@ -385,7 +280,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 141dbecd8e137c744a56649db2dab931
+    spriteID: cd0be9a557aafe64191245fdd9ecbe39
     internalID: 0
     vertices: []
     indices: 
@@ -393,19 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gordoblin walk sprite_0: -341126274
-      gordoblin walk sprite_1: 124577427
-      gordoblin walk sprite_10: 698683352
-      gordoblin walk sprite_11: -1262043598
-      gordoblin walk sprite_12: -317591479
-      gordoblin walk sprite_2: 1446980017
-      gordoblin walk sprite_3: -2021015722
-      gordoblin walk sprite_4: 966846734
-      gordoblin walk sprite_5: -1590010848
-      gordoblin walk sprite_6: -692987787
-      gordoblin walk sprite_7: 223784143
-      gordoblin walk sprite_8: 2070593608
-      gordoblin walk sprite_9: -1598316327
+      attack lance sheet_0: -1135908466
+      attack lance sheet_1: 1862634943
+      attack lance sheet_2: 1860032758
+      attack lance sheet_3: -1078050543
+      attack lance sheet_4: -1770439017
+      attack lance sheet_5: 388878045
+      attack lance sheet_6: 195820710
+      attack lance sheet_7: -1037488246
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

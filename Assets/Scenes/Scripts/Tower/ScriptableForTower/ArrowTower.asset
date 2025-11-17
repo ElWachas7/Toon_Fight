@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: ArrowTower
   m_EditorClassIdentifier: 
   damage: 25
-  projectileSpeed: 7
+  projectileSpeed: 10
   range: 10
   cooldown: 1
-  exp: 0
   level: 1

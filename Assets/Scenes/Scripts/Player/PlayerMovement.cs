@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 move;
     public Vector3 Move => move; //animator necesita esta variable para determinar si se mueve el player
 
+    public float lockedY;  // Y fija del player
+    public Vector3 pos;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -25,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
         move = transform.right * horizontal + transform.forward * vertical;
         controller.Move(move * Speed * Time.deltaTime);
         //para animaciones si se mueve o no
+        pos = transform.position;
+        pos.y = lockedY;
+        transform.position = pos;
     }
 
     //Agregado de Nico para que el player pueda recibir daño, esta funcion es llamada desde EnemyAttackState

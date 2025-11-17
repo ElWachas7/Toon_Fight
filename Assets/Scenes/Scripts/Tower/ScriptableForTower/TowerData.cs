@@ -9,6 +9,5 @@ public class TowerData : ScriptableObject
     public float projectileSpeed;
     public float range;
     public float cooldown;
-    public int exp;
     public int level;
 }

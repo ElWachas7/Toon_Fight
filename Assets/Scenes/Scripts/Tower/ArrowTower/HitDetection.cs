@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-
 public class HitDetection : MonoBehaviour
 {
     [SerializeField] public Transform shootingPoint;
     [SerializeField] private ArrowPool arrowPool;
-    [SerializeField] private TowerStats towerStats;
+    [SerializeField] private TowerManager towerManager;
     private float coolDownCounter = 0;
     private List<IEnemy> enemiesInRange = new List<IEnemy>();
 
+    public void OnEnable()
+    {
+        if (arrowPool == null)
+            arrowPool = FindObjectOfType<ArrowPool>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
@@ -56,20 +61,18 @@ public class HitDetection : MonoBehaviour
 
         coolDown(objetivo);
     }
-
     private void Atacar(IEnemy enemigo)
     {
         Arrow arrow = arrowPool.GetArrow();
         arrow.transform.position = shootingPoint.position;
-        arrow.Shoot(enemigo, towerStats.damage, towerStats.projectileSpeed);
+        arrow.Shoot(enemigo, towerManager.ArrowData.damage, towerManager.ArrowData.projectileSpeed);
     }
-
     private void coolDown(IEnemy objetivo) 
     {
         if (objetivo != null)
         {
             coolDownCounter += Time.deltaTime;
-            if (coolDownCounter >= towerStats.cooldown)
+            if (coolDownCounter >= towerManager.ArrowData.cooldown)
             {
                 Atacar(objetivo);
                 coolDownCounter = 0;
@@ -80,5 +83,4 @@ public class HitDetection : MonoBehaviour
             coolDownCounter = 0;
         }
     }
-
 }

@@ -6,7 +6,7 @@ public class S_hitDetection : MonoBehaviour
 {
     [SerializeField] public Transform shootingPoint;
     [SerializeField] private StonePool stonePool;
-    [SerializeField] private TowerStats towerStats;
+    [SerializeField] private TowerManager towerManager;
     private float coolDownCounter = 0;
     private List<IEnemy> enemiesInRange = new List<IEnemy>();
 
@@ -64,15 +64,14 @@ public class S_hitDetection : MonoBehaviour
     {
         Stone stone = stonePool.GetStone();
         stone.transform.position = shootingPoint.position;
-        stone.Shoot(enemigo, towerStats.damage, towerStats.projectileSpeed);
+        stone.Shoot(enemigo, towerManager.StoneData.damage, towerManager.StoneData.projectileSpeed);
     }
-
     private void coolDown(IEnemy objetivo)
     {
         if (objetivo != null)
         {
             coolDownCounter += Time.deltaTime;
-            if (coolDownCounter >= towerStats.cooldown)
+            if (coolDownCounter >= towerManager.StoneData.cooldown)
             {
                 Atacar(objetivo);
                 coolDownCounter = 0;

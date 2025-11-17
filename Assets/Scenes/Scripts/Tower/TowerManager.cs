@@ -1,10 +1,9 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UnBuild : MonoBehaviour
+public class TowerManager : MonoBehaviour
 {
     [Header("Aspectos visuales")]
     [SerializeField] private MeshRenderer cross1; // son uno mismo, componen la cruz de la base
@@ -25,13 +24,13 @@ public class UnBuild : MonoBehaviour
     [Header("Tower Stats")]
     [SerializeField] public GameObject ArrowTower;
     [SerializeField] public GameObject StoneTower;
+    [SerializeField] public GameObject UnBuild;
     [SerializeField] public int Price;
-    public TowerStats towerStats;
     public TowerData ArrowData;
     public TowerData StoneData;
 
 
-    public void Awake()
+    public void Awake() // aspectos y configuracion visual
     {
         startPos = Button.transform.position;
         cross1.material = FarAway;
@@ -45,7 +44,6 @@ public class UnBuild : MonoBehaviour
             Button.gameObject.SetActive(true);
         }
     }
-
     public void OnTriggerExit(Collider other)
     {
         if (other != null && other.CompareTag("Player"))
@@ -56,7 +54,6 @@ public class UnBuild : MonoBehaviour
             Button.gameObject.SetActive(false);
         }
     }
-
     public void Update()
     {
         if (inRangeToBuy)
@@ -81,25 +78,21 @@ public class UnBuild : MonoBehaviour
             cross2.material = CanBuy;
             RedRectE.gameObject.SetActive(false);
             RedRectR.gameObject.SetActive(false);
-            if (Input.GetKeyDown(KeyCode.E)) 
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                ChargeStats(ArrowData);
-                ArrowTower.SetActive(true);
-                this.gameObject.SetActive(false);
-                GameManager.gameManagerSingleton.money -= Price;
+                ChangeTower(ArrowTower);
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
-                ChargeStats(StoneData);
-                StoneTower.SetActive(true);
-                this.gameObject.SetActive(false);
-                GameManager.gameManagerSingleton.money -= Price;
+                ChangeTower(StoneTower);
             }
         }
     }
-
-    public void ChargeStats(TowerData data) 
+    public void ChangeTower(GameObject tower)
     {
-        towerStats.ChargeStats(data);
+        tower.SetActive(true);
+        UnBuild.gameObject.SetActive(false);
+        GameManager.gameManagerSingleton.money -= Price;
+        inRangeToBuy = false;
     }
 }
