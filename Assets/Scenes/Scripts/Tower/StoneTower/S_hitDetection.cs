@@ -10,6 +10,11 @@ public class S_hitDetection : MonoBehaviour
     private float coolDownCounter = 0;
     private List<IEnemy> enemiesInRange = new List<IEnemy>();
 
+    public void OnEnable()
+    {
+        if (stonePool == null)
+            stonePool = FindObjectOfType<StonePool>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))

@@ -4067,28 +4067,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1155232690}
-  - component: {fileID: 1155232689}
+  - component: {fileID: 1155232691}
   m_Layer: 0
-  m_Name: ArrowPool (1)
+  m_Name: StonePool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1155232689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155232688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c68044211a4179d499b05bc4426b2a75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 5044929497160048654, guid: 64f0e6174e5b91b4ab0fa9a174fa428c,
-    type: 3}
 --- !u!4 &1155232690
 Transform:
   m_ObjectHideFlags: 0
@@ -4104,6 +4090,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1155232691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155232688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adf4b5cf36633d49b0ab0ef4b1ebbad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stonePrefab: {fileID: 3689870468180287913, guid: 9bb3e857911904843af5b1a1ac63e56c,
+    type: 3}
 --- !u!4 &1166166945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 920251630928087196, guid: 70837ff2965d13a4eb1dd607bccc422f,

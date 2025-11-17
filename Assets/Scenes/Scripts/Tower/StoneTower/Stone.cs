@@ -13,6 +13,7 @@ public class Stone : MonoBehaviour
     private float elapsedTime;
     private static readonly float gravity = Mathf.Abs(Physics.gravity.y);
     private Transform enemyTransform;
+    [SerializeField] float radius;
 
     public void Shoot(IEnemy enemy, int damage, float projectileSpeed)
     {
@@ -61,7 +62,6 @@ public class Stone : MonoBehaviour
 
     private void Explode()
     {
-        float radius = 3f;
         Collider[] hits = Physics.OverlapSphere(transform.position, radius);
 
         foreach (Collider hit in hits)
