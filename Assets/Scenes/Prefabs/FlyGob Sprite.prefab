@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fillImage: {fileID: 636674265003710425}
   offset: {x: 0, y: 2, z: 0}
+  enemySprite: {fileID: 1347010577108650728}
   shadow: {fileID: 8634376447407698126}
 --- !u!1 &2325762171302224672
 GameObject:

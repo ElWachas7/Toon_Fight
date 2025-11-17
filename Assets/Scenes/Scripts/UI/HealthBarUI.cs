@@ -1,4 +1,5 @@
 using System.Buffers.Text;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,10 @@ public class HealthBarUI : MonoBehaviour
     private Transform target;
     private Camera cam;
     private string enemyType;
+    public SpriteRenderer enemySprite;
     public SpriteRenderer shadow;
+
+    private bool isFlashing = false;
 
     public void Initialize(Transform targetTransform, string type)
     {
@@ -26,6 +30,30 @@ public class HealthBarUI : MonoBehaviour
     {
         
         fillImage.fillAmount = Mathf.Clamp01(current / max);
+        RecivedDamage();
+    }
+    public void RecivedDamage()
+    {
+        if (!isFlashing)
+            StartCoroutine(FlashRed());
+    }
+
+    private IEnumerator FlashRed()
+    {
+        isFlashing = true;
+
+        Color originalEnemyColor = enemySprite.color;
+        
+
+      
+        enemySprite.color = Color.red;
+
+        yield return new WaitForSeconds(0.5f);
+
+      
+        enemySprite.color = originalEnemyColor;
+
+        isFlashing = false;
     }
 
     private void LateUpdate()
