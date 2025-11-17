@@ -22,6 +22,11 @@ public class Sword : MonoBehaviour, IWeapon
         AttackArea.radius = Radius;
         coolDownCounter = coolDown;
     }
+    private void OnDisable()
+    {
+        enemiesInRange.Clear();
+        coolDownCounter = coolDown;
+    }
 
     private void Update()
     {
