@@ -6,24 +6,29 @@ using UnityEngine.UI;
 
 public class UnBuild : MonoBehaviour
 {
+    [Header("Aspectos visuales")]
     [SerializeField] private MeshRenderer cross1; // son uno mismo, componen la cruz de la base
     [SerializeField] private MeshRenderer cross2;
-
     [SerializeField] private Material CanBuy;
     [SerializeField] private Material FarAway;
     [SerializeField] private Material noMoney; //suficientemente cerca pero no puede comprarlo
-
     [SerializeField] private Canvas Button;
-    [SerializeField] private Image[] RedRect;//barra lateral roja para mostrar que no se puede comprar
+    [SerializeField] private Image RedRectE;//barra lateral roja para mostrar que no se puede comprar
+    [SerializeField] private Image RedRectR;
+
+    [Header("Configuracion visual")]
     private float amplitude = 0.2f; //cuanto sube y baja
     private float frequency = 2f; //velocidad
     private Vector3 startPos;
-
-    
     private bool inRangeToBuy; //significa que esta en rango de poder comprar
+
+    [Header("Tower Stats")]
     [SerializeField] public GameObject ArrowTower;
     [SerializeField] public GameObject StoneTower;
     [SerializeField] public int Price;
+    public TowerStats towerStats;
+    public TowerData ArrowData;
+    public TowerData StoneData;
 
 
     public void Awake()
@@ -62,31 +67,39 @@ public class UnBuild : MonoBehaviour
         // Movimiento senoidal vertical
         float newY = startPos.y + Mathf.Sin(Time.time * frequency) * amplitude;
         Button.transform.position = new Vector3(startPos.x, newY, startPos.z);
+
         if (GameManager.gameManagerSingleton.money < Price)
         {
             cross1.material = noMoney; //no se puede comprar
             cross2.material = noMoney;
-            RedRect[0].gameObject.SetActive(true); // esto deberia cambiarse porque tener un array para 2 es medio raro
-            RedRect[1].gameObject.SetActive(true);
+            RedRectE.gameObject.SetActive(true);
+            RedRectR.gameObject.SetActive(true);
         }
         else
         {
             cross1.material = CanBuy; // se puede comprar
             cross2.material = CanBuy;
-            RedRect[0].gameObject.SetActive(false);
-            RedRect[1].gameObject.SetActive(false);
+            RedRectE.gameObject.SetActive(false);
+            RedRectR.gameObject.SetActive(false);
             if (Input.GetKeyDown(KeyCode.E)) 
             {
+                ChargeStats(ArrowData);
                 ArrowTower.SetActive(true);
                 this.gameObject.SetActive(false);
-                GameManager.gameManagerSingleton.Money -= Price;
+                GameManager.gameManagerSingleton.money -= Price;
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
+                ChargeStats(StoneData);
                 StoneTower.SetActive(true);
                 this.gameObject.SetActive(false);
                 GameManager.gameManagerSingleton.money -= Price;
             }
         }
+    }
+
+    public void ChargeStats(TowerData data) 
+    {
+        towerStats.ChargeStats(data);
     }
 }

@@ -5,12 +5,22 @@ using UnityEngine;
 public class TowerStats : MonoBehaviour
 {
     //Arrow
-    public int damage = 1;
-    public float projectileSpeed = 10f;
+    public int damage;
+    public float projectileSpeed;
     //tower
-    public float range = 10f;
-    public float cooldown = 6f;
+    public float range;
+    public float cooldown;
     //status
-    public int exp = 0;
-    public int level = 1;
+    public int exp;
+    public int level;
+
+    public void ChargeStats(TowerData data)
+    {
+        damage = data.damage;
+        projectileSpeed = data.projectileSpeed;
+        range = data.range;
+        cooldown = data.cooldown;
+        exp = data.exp;
+        level = data.level;
+    }
 }
