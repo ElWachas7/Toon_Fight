@@ -29,7 +29,7 @@ public class Arrow : MonoBehaviour
     private IEnumerator MoveToTarget(IEnemy enemy)
     {
         Vector3 origin = transform.position;
-        while (elapsedTime < 3f)
+        while (elapsedTime < 2f)
         {
             if (enemy == null || enemyTransform == null || !enemyTransform.gameObject.activeInHierarchy)
                 break;

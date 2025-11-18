@@ -40,8 +40,13 @@ public class HitDetection : MonoBehaviour
     }
     private void Update()
     {
-        //Una linea re falopa de chatgpt
-        enemiesInRange.RemoveAll(enemy => enemy == null || !((MonoBehaviour)enemy).gameObject.activeInHierarchy || enemy.EnemyHealth <= 0);
+        //Esta linea intenta resolver el bug de las flechas infinitas
+        enemiesInRange.RemoveAll(enemy =>
+        {
+            MonoBehaviour mb = enemy as MonoBehaviour;
+
+            return mb == null || enemy.EnemyHealth <= 0;
+        });
         //aca tengo que modiciar este scritp, solo obtiene el enemigo en rango y los guarda en una lista
         //deberia hacer un proceso de eleccion con la distancia y puntos recorridos de cada enemigo
         if (enemiesInRange.Count == 0) return;

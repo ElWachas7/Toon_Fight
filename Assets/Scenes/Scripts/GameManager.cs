@@ -60,16 +60,16 @@ public class GameManager : MonoBehaviour
     public void SetTowerData() //Los SO no se resetean luego de cada partida por lo que hay que volver a su estado normal
     {
         //ArrowTower
-        AT.damage = 25;
+        AT.damage = 20;
         AT.projectileSpeed = 6f;
         AT.range = 10f;
-        AT.cooldown = 1f;
+        AT.cooldown = 1.2f;
         AT.level = 1;
         //StoneTower
-        ST.damage = 35;
+        ST.damage = 30;
         ST.projectileSpeed = 5f;
         ST.range = 9f;
-        ST.cooldown = 1.5f;
+        ST.cooldown = 1.7f;
         ST.level = 1;
 
     }
@@ -82,7 +82,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(gameObject);
         SetTowerData();
     }
 
@@ -186,9 +185,9 @@ public class GameManager : MonoBehaviour
         towerCurrentHealth -= enemy.damage;
       
         towerHealthUI.fillAmount = Mathf.Clamp01(towerCurrentHealth / towerHealth);
-        if (towerHealth <= 0)
+        if (towerCurrentHealth <= 0)
         {
-            SceneManager.LoadScene("GameOverScene");
+            SceneManager.LoadScene(3);
         }
     }
     private void OnAllWavesCompleted()

@@ -2085,7 +2085,7 @@ GameObject:
   - component: {fileID: 5009785269762119946}
   - component: {fileID: 152267513049269716}
   m_Layer: 0
-  m_Name: Hero
+  m_Name: Gordoply
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2209,7 +2209,7 @@ GameObject:
   - component: {fileID: 4018582458090577811}
   - component: {fileID: 7074287720813121726}
   m_Layer: 0
-  m_Name: Hero
+  m_Name: Flopy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

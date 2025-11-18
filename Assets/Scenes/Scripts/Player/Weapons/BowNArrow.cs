@@ -33,6 +33,11 @@ public class BowNArrow : MonoBehaviour , IWeapon
     }
     private void Update() // se mantiene
     {
+        enemiesInRange.RemoveAll(enemy =>
+        {
+            MonoBehaviour mb = enemy as MonoBehaviour;
+            return mb == null || enemy.EnemyHealth <= 0;
+        });
         enemiesInRangeCant = enemiesInRange.Count;
         if (enemiesInRange.Count == 0)
         {
@@ -45,14 +50,7 @@ public class BowNArrow : MonoBehaviour , IWeapon
 
         foreach (IEnemy enemigo in enemiesInRange)
         {
-            //float distancia = Vector3.Distance(transform.position, enemigo.transform.position);
-            if (enemigo.EnemyHealth <= 50) // aca aplicar la logica de obtener el enemigo con menor dist
-            {
-                enemiesInRange.Remove(enemigo); // esto deberia eliminar al enemigo muerto
-                Debug.Log("ELIMINADO");
-            }
-            
-
+            //float distancia = Vector3.Distance(transform.position, enemigo.transform.position)
             if (enemigo.Distance < menorDistancia)
             {
                 menorDistancia = enemigo.Distance;
@@ -96,11 +94,13 @@ public class BowNArrow : MonoBehaviour , IWeapon
     public void Cooldown(IEnemy objetivo) 
     {
         coolDownCounter -= Time.deltaTime;
-
         if (coolDownCounter <= 0 && enemiesInRange.Count > 0)
         {
-            Attack(objetivo);
-            coolDownCounter = coolDown;
+            if (objetivo != null) 
+            {
+                Attack(objetivo);
+                coolDownCounter = coolDown;
+            }
         }
     }
 }
